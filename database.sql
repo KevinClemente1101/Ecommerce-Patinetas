@@ -353,21 +353,6 @@ INSERT INTO `ventas` (`id`, `usuario_id`, `fecha`, `total`, `direccion_envio`, `
 (9, 2, '2025-07-11 14:53:02', 169.99, 'ancon', 'yape', '989823727'),
 (11, 9, '2025-07-11 19:19:59', 469.97, 'ancon', 'tarjeta', '39123921738217332');
 
--- Tabla boleta (cabecera de comprobante)
-CREATE TABLE boleta (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  numero VARCHAR(20) NOT NULL,
-  fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  usuario_id INT NOT NULL,
-  venta_id INT NOT NULL,
-  subtotal DECIMAL(10,2) NOT NULL,
-  igv DECIMAL(10,2) NOT NULL,
-  total DECIMAL(10,2) NOT NULL,
-  forma_pago VARCHAR(20),
-  observaciones VARCHAR(255),
-  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-  FOREIGN KEY (venta_id) REFERENCES ventas(id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Índices para tablas volcadas
