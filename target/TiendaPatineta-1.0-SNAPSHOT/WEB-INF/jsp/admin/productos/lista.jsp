@@ -10,6 +10,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            height: 100%;
+        }
+        main.col-md-9 {
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+        }
+        .container-fluid, .row {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
         .product-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -19,7 +32,8 @@
         }
         .product-image {
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
+            background: #fff;
             border-radius: 10px 10px 0 0;
         }
         .stock-badge {
@@ -32,16 +46,27 @@
             padding: 8px 16px;
             font-size: 0.9rem;
         }
+        .precio-card {
+            display: inline-block;
+            background: #181c24;
+            border-radius: 22px;
+            padding: 0.4em 1.2em;
+            font-size: 1.3rem;
+            font-weight: 800;
+            box-shadow: 0 2px 12px rgba(0,255,193,0.10);
+        }
+        .precio-card .precio-num {
+            color: #0fffc1;
+            font-weight: 900;
+            font-size: 1.3rem;
+        }
     </style>
 </head>
 <body>
     <jsp:include page="../includes/header.jsp" />
-    
-    <div class="container-fluid">
-        <div class="row">
-            <jsp:include page="../includes/sidebar.jsp" />
-            
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+    <div style="display: flex; min-height: 100vh;">
+        <jsp:include page="../includes/sidebar.jsp" />
+        <div style="flex: 1; padding: 2.5rem 2rem 2rem 2rem; background: #fff;">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 class="h2">
                         <i class="fas fa-box me-2"></i>Gestión de Productos
@@ -108,8 +133,8 @@
                                     
                                     <div class="mt-auto">
                                         <div class="d-flex justify-content-between align-items-center mb-2">
-                                            <span class="h5 text-primary mb-0">
-                                                S/ <fmt:formatNumber value="${producto.precio}" pattern="#,##0.00"/>
+                                            <span class="precio-card mb-0">
+                                                S/ <span class="precio-num"><fmt:formatNumber value="${producto.precio}" pattern=",##0.00"/></span>
                                             </span>
                                             <small class="text-muted">
                                                 Stock: ${producto.stock}
@@ -128,7 +153,7 @@
                                                 <i class="fas fa-edit me-1"></i>Editar
                                             </a>
                                             <button type="button" class="btn btn-outline-danger btn-action" 
-                                                    onclick="confirmarEliminar(${producto.id}, '${producto.nombre}')">
+                                                    onclick="confirmarEliminar('${producto.id}', '${producto.nombre}')">
                                                 <i class="fas fa-trash me-1"></i>Eliminar
                                             </button>
                                         </div>
@@ -150,7 +175,7 @@
                         </a>
                     </div>
                 </c:if>
-            </main>
+            </div>
         </div>
     </div>
     

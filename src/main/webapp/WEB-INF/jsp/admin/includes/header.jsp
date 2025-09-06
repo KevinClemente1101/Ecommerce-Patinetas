@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="${pageContext.request.contextPath}/admin/dashboard">
-            <i class="fas fa-skating me-2"></i>Tienda de Patinetas - Admin
+            <i class=""></i>House Of Skate - Admin
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -22,7 +22,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${pageContext.request.contextPath}/admin/categorias">
-                        <i class="fas fa-list me-1"></i>Categorías
+                        <i class="fas fa-list me-1"></i>Categorias
                     </a>
                 </li>
                 <li class="nav-item">
@@ -50,15 +50,11 @@
                             </a>
                         </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <a class="dropdown-item" href="${pageContext.request.contextPath}/">
-                                <i class="fas fa-store me-2"></i>Ver Tienda
-                            </a>
-                        </li>
+                    
                         <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item text-danger" href="${pageContext.request.contextPath}/logout">
-                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión
+                                <i class="fas fa-sign-out-alt me-2"></i>Cerrar Sesion
                             </a>
                         </li>
                     </ul>
@@ -67,3 +63,64 @@
         </div>
     </div>
 </nav> 
+<style>
+.admin-navbar {
+    background: #23272b !important;
+    box-shadow: 0 2px 12px rgba(102,126,234,0.10);
+    min-height: 64px;
+}
+.admin-navbar .navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.admin-navbar .navbar-nav .nav-link {
+    color: #d1d5db !important;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: 0.7rem;
+    transition: color 0.2s, transform 0.2s;
+    background: none !important;
+}
+.admin-navbar .navbar-nav .nav-link.active, .admin-navbar .navbar-nav .nav-link:hover {
+    color: #7e30e1 !important;
+    background: none !important;
+    transform: translateY(-3px) scale(1.07);
+}
+.admin-navbar .navbar-nav .nav-link i {
+    transition: color 0.2s, transform 0.2s;
+}
+.admin-navbar .navbar-nav .nav-link:hover i, .admin-navbar .navbar-nav .nav-link.active i {
+    color: #7e30e1 !important;
+    transform: translateY(-2px) scale(1.15);
+}
+.admin-navbar .dropdown-menu {
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(102,126,234,0.10);
+    font-size: 1rem;
+}
+.admin-navbar .dropdown-item {
+    color: #0fffc1;
+    font-weight: 600;
+    transition: color 0.2s, transform 0.2s;
+}
+.admin-navbar .dropdown-item:hover, .admin-navbar .dropdown-item:focus {
+    background: none !important;
+    color: #7e30e1;
+    transform: translateX(6px) scale(1.07);
+}
+body {
+    padding-top: 70px !important; /* Ajusta según la altura real de la navbar */
+}
+</style>
+<script>
+// Agregar la clase admin-navbar al navbar
+window.addEventListener('DOMContentLoaded', function() {
+    var nav = document.querySelector('.navbar');
+    if(nav) nav.classList.add('admin-navbar');
+});
+</script> 

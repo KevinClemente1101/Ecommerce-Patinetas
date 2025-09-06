@@ -353,6 +353,7 @@ INSERT INTO `ventas` (`id`, `usuario_id`, `fecha`, `total`, `direccion_envio`, `
 (9, 2, '2025-07-11 14:53:02', 169.99, 'ancon', 'yape', '989823727'),
 (11, 9, '2025-07-11 19:19:59', 469.97, 'ancon', 'tarjeta', '39123921738217332');
 
+
 --
 -- Índices para tablas volcadas
 --
